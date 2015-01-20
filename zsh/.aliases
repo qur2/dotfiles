@@ -1,0 +1,8 @@
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias diff="colordiff"
+alias df="df -H"
+alias du="du -ch"
+
+serve() {
+  pushd ${1:-.}; python -m SimpleHTTPServer; popd 2> /dev/null
+}
