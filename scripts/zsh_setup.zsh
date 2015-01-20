@@ -21,7 +21,9 @@ fi
 # install zsh-autoenv
 if [[ ! -d zsh/zsh-autoenv ]]; then
   git clone https://github.com/Tarrasch/zsh-autoenv zsh/zsh-autoenv
-  echo "source $PWD/zsh/zsh-autoenv/autoenv.zsh" >> "${HOME}/.zshrc"
+fi
+if [[ -z $(cat "${HOME}/.zshrc" | grep "${PWD}/zsh/zsh-autoenv/autoenv.zsh") ]]; then
+  echo "source ${PWD}/zsh/zsh-autoenv/autoenv.zsh" >> "${HOME}/.zshrc"
 fi
 
 # source custom aliases
