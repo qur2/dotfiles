@@ -3,7 +3,7 @@
 # install prezto
 setopt EXTENDED_GLOB
 if [[ ! -d zsh/.zprezto ]]; then
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git zsh/.zprezto
+  git clone -b qur2 --single-branch --recursive https://github.com/qur2/prezto.git zsh/.zprezto
   for rcfile in zsh/.zprezto/runcoms/z*; do
     ln -s "$(basename $PWD)/$rcfile" "$HOME/.${rcfile:t}"
   done
