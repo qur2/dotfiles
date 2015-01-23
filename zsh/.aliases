@@ -1,7 +1,21 @@
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
 alias diff="colordiff"
 alias df="df -H"
 alias du="du -ch"
+
+# http://unixsuperhero.com/2012/10/04/enhancing-git-status-with-gs/
+gs () {
+  # Author: Joshua Toyota (Unix Superhero)
+  git status -s | sed "s/...//;s/.* -> //" | grep "$1" | sort -u
+}
+ff () {
+  # Author: Joshua Toyota (Unix Superhero)
+  find . -type f | grep -i "$(echo "$1" | sed 's/./&.*/g')"
+}
+fc () {
+  grep -n "$(echo "$1" | sed 's/./&.*/g')" "$2"
+}
 
 serve() {
   pushd ${1:-.}; python -m SimpleHTTPServer; popd 2> /dev/null
